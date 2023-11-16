@@ -1,0 +1,259 @@
+LOGIN PAGE: 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="login-container">
+        <h2>Login to Your Portfolio</h2>
+        <form action="navigate.php" method="post">
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit" name="login">Login</button>
+        </form>
+    </div>
+</body>
+</html>
+
+ABOUT AND PROJECTS :
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Person's Portfolio</title>
+    <style>
+        /* Basic styling for demonstration purposes */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        h1, h2, p {
+            margin-bottom: 10px;
+        }
+        .project {
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <?php
+            // Define person's information
+            $person = array(
+                'name' => 'Sai Sruthi.Pulla',
+                'title' => 'Web Developer',
+                'bio' => 'A passionate web developer with a keen interest in creating innovative web applications.',
+                'projects' => array(
+                    array(
+                        'title' => 'Project 1',
+                        'description' => 'This project involved building a responsive website using HTML, CSS, and JavaScript.',
+                        'link' => 'https://example.com/project1'
+                    ),
+                    array(
+                        'title' => 'Project 2',
+                        'description' => 'Developed a blog application using PHP and MySQL, allowing users to create and manage posts.',
+                        'link' => 'https://example.com/project2'
+                    ),
+                    // Add more projects as needed
+                )
+            );
+        ?>
+        <h1><?php echo $person['name']; ?></h1>
+        <h2><?php echo $person['title']; ?></h2>
+        <p><?php echo $person['bio']; ?></p>
+
+        <h2>Projects</h2>
+        <?php foreach ($person['projects'] as $project) { ?>
+            <div class="project">
+                <h3><?php echo $project['title']; ?></h3>
+                <p><?php echo $project['description']; ?></p>
+                <a href="<?php echo $project['link']; ?>" target="_blank">View Project</a>
+            </div>
+        <?php } ?>
+    </div>
+</body>
+</html>
+
+RESUME :
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Resume - sruthi pulla</title>
+    <style>
+        /* Basic styling for demonstration purposes */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        h1, h2, h3, p {
+            margin-bottom: 10px;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <?php
+            // Define person's information
+            $person = array(
+                'name' => 'sai sruthi',
+                'title' => 'Web Developer',
+                'email' => 'john@example.com',
+                'phone' => '+1234567890',
+                'address' => '123 Main St, City, Country',
+                'summary' => 'A skilled web developer with expertise in front-end and back-end technologies.',
+                'experience' => array(
+                    array(
+                        'title' => 'Senior Web Developer',
+                        'company' => 'Tech Solutions Inc.',
+                        'location' => 'City, Country',
+                        'dates' => '2018 - Present',
+                        'description' => 'Led a team in developing responsive and scalable web applications.'
+                    ),
+                    array(
+                        'title' => 'Junior Web Developer',
+                        'company' => 'WebWorks Ltd.',
+                        'location' => 'City, Country',
+                        'dates' => '2015 - 2018',
+                        'description' => 'Contributed to the development of various web projects.'
+                    ),
+                    // Add more experience as needed
+                ),
+                'education' => array(
+                    array(
+                        'degree' => 'Bachelor of Science in Computer Science',
+                        'school' => 'University Name',
+                        'location' => 'City, Country',
+                        'dates' => '2011 - 2015'
+                    ),
+                    // Add more education as needed
+                ),
+                'skills' => array(
+                    'HTML', 'CSS', 'JavaScript', 'PHP', 'MySQL', 'React', 'Node.js'
+                    // Add more skills as needed
+                )
+            );
+        ?>
+        <h1><?php echo $person['name']; ?></h1>
+        <h2><?php echo $person['title']; ?></h2>
+        <p>Email: <?php echo $person['email']; ?></p>
+        <p>Phone: <?php echo $person['phone']; ?></p>
+        <p>Address: <?php echo $person['address']; ?></p>
+
+        <div class="section">
+            <h2>Summary</h2>
+            <p><?php echo $person['summary']; ?></p>
+        </div>
+
+        <div class="section">
+            <h2>Experience</h2>
+            <?php foreach ($person['experience'] as $experience) { ?>
+                <h3><?php echo $experience['title']; ?> - <?php echo $experience['company']; ?></h3>
+                <p><?php echo $experience['location']; ?> | <?php echo $experience['dates']; ?></p>
+                <p><?php echo $experience['description']; ?></p>
+            <?php } ?>
+        </div>
+
+        <div class="section">
+            <h2>Education</h2>
+            <?php foreach ($person['education'] as $education) { ?>
+                <h3><?php echo $education['degree']; ?> - <?php echo $education['school']; ?></h3>
+                <p><?php echo $education['location']; ?> | <?php echo $education['dates']; ?></p>
+            <?php } ?>
+        </div>
+
+        <div class="section">
+            <h2>Skills</h2>
+            <ul>
+                <?php foreach ($person['skills'] as $skill) { ?>
+                    <li><?php echo $skill; ?></li>
+                <?php } ?>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
+
+NAVIGATE :
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <style>
+        /* Basic styling for demonstration purposes */
+        /* ... (existing styles remain the same) ... */
+        nav {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+        }
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline-block;
+            margin-right: 20px;
+        }
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 15px;
+            transition: background-color 0.3s ease;
+        }
+        nav ul li a:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to My Portfolio</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="home.php">Home</a></li>
+            <li><a href="about.php">project</a></li>
+            <li><a href="resume.php">resume</a></li>
+            <li><a href="contact.php">Contact</a></li>
+            
+        </ul>
+    </nav>
+    <div class="container">
+        <div class="main" id="home">
+            <h2>Welcome to My Portfolio!</h2>
+            <p>This is the home section.</p>
+        </div>
+        <div class="main" id="about">
+            <h2>About Me</h2>
+            <p>Info
+
